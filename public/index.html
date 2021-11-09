@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="audio_recorder.js"></script>
+
+</head>
+<body>
+
+    <h1>Smart Looper</h1>
+    <button onClick="
+    const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+
+    (async () => {
+        const recorder = await recordAudio();
+        recorder.start();
+        await sleep(3000);
+        const audio = await recorder.stop();
+        audio.play();
+      })();">Record</button>
+</body>
+</html>
